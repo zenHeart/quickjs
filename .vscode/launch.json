@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug api-test",
+      "program": "${workspaceFolder}/build/api-test",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "build-api-test",
+      "env": {
+        "DYLD_LIBRARY_PATH": "${workspaceFolder}/build:${env:DYLD_LIBRARY_PATH}"
+      }
+    }
+  ]
+}

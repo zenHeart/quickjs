@@ -1,0 +1,38 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ensure-build-dir",
+      "type": "shell",
+      "command": "mkdir",
+      "args": ["-p", "${workspaceFolder}/build"],
+      "group": "build"
+    },
+    {
+      "label": "build-debug",
+      "type": "shell",
+      "command": "make",
+      "args": ["debug"],
+      "group": "build",
+      "dependsOn": ["ensure-build-dir"],
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "build-api-test",
+      "type": "shell",
+      "command": "clang",
+      "args": [
+        "-g",
+        "-o",
+        "${workspaceFolder}/build/api-test",
+        "${workspaceFolder}/api-test.c",
+        "-I${workspaceFolder}",
+        "-L${workspaceFolder}/build",
+        "-lqjs"
+      ],
+      "dependsOn": ["build-debug"],
+      "group": "build",
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}
