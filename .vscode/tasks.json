@@ -33,6 +33,29 @@
       "dependsOn": ["build-debug"],
       "group": "build",
       "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "build-js-file-runner",
+      "type": "shell",
+      "command": "clang",
+      "args": [
+        "-g",
+        "-o",
+        "${workspaceFolder}/build/js-file-runner",
+        "${workspaceFolder}/debug/js-file-runner.c",
+        "${workspaceFolder}/quickjs.c",
+        "${workspaceFolder}/quickjs-libc.c",
+        "${workspaceFolder}/cutils.c",
+        "${workspaceFolder}/libregexp.c",
+        "${workspaceFolder}/libunicode.c",
+        "${workspaceFolder}/libbf.c",
+        "-I${workspaceFolder}",
+        "-DCONFIG_VERSION=\"dev\"",
+        "-DCONFIG_BIGNUM"
+      ],
+      "group": "build",
+      "dependsOn": ["ensure-build-dir"],
+      "problemMatcher": ["$gcc"]
     }
   ]
 }

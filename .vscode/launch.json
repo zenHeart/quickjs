@@ -12,6 +12,15 @@
       "env": {
         "DYLD_LIBRARY_PATH": "${workspaceFolder}/build:${env:DYLD_LIBRARY_PATH}"
       }
+    },
+    {
+      "name": "Debug JS File Runner",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/js-file-runner",
+      "args": ["${workspaceFolder}/debug/js/test.js"],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "build-js-file-runner"
     }
   ]
 }
